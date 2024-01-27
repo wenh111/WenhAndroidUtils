@@ -1,0 +1,66 @@
+plugins {
+    id 'com.android.application'
+    id 'maven-publish'
+}
+
+android {
+    namespace 'com.example.wenhutils'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.wenhutils"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+//    api project(':hwhutillibrary')
+//    implementation project(path: ':wenhcommomadapter')
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'com.zhy:base-rvadapter:3.0.3'
+    api 'com.billy.android:smart-swipe:1.1.2'
+    //android x环境下兼容NestedScrolling
+    api 'com.billy.android:smart-swipe-x:1.1.0'
+    implementation 'dev.ahamed.mva2:adapter:2.0.0'
+}
+//上传的目标仓库地址
+def RELEASE_REPOSITORY_URL = "https://packages.aliyun.com/maven/repository/2133505-release-n8Y2Oc/"
+//Nexus 的私服的用户名称和密码
+def NEXUS_USERNAME = "612d82767cbfb3c62b9157ba"
+def NEXUS_PASSWORD = "UPg3sBcscOJM"
+
+publishing {
+    repositories {
+        maven {
+            url RELEASE_REPOSITORY_URL
+            credentials {
+                username = NEXUS_USERNAME
+                password = NEXUS_PASSWORD
+            }
+        }
+
+        mavenLocal()
+    }
+}
