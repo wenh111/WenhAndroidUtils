@@ -156,14 +156,14 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
     }
 
     /**
-     * It is recommended to use {@link SupportFragment#start(ISupportFragment)}.
+     * It is recommended to use {@link com.wenh.baselibrary.fragement.SupportFragment#start(ISupportFragment)}.
      */
     public void start(ISupportFragment toFragment) {
         mDelegate.start(toFragment);
     }
 
     /**
-     * It is recommended to use {@link SupportFragment#start(ISupportFragment, int)}.
+     * It is recommended to use {@link com.wenh.baselibrary.fragement.SupportFragment#start(ISupportFragment, int)}.
      *
      * @param launchMode Similar to Activity's LaunchMode.
      */
@@ -172,7 +172,7 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
     }
 
     /**
-     * It is recommended to use {@link SupportFragment#startForResult(ISupportFragment, int)}.
+     * It is recommended to use {@link com.wenh.baselibrary.fragement.SupportFragment#startForResult(ISupportFragment, int)}.
      * Launch an fragment for which you would like a result when it poped.
      */
     public void startForResult(ISupportFragment toFragment, int requestCode) {
@@ -180,7 +180,7 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
     }
 
     /**
-     * It is recommended to use {@link SupportFragment#startWithPop(ISupportFragment)}.
+     * It is recommended to use {@link com.wenh.baselibrary.fragement.SupportFragment#startWithPop(ISupportFragment)}.
      * Start the target Fragment and pop itself
      */
     public void startWithPop(ISupportFragment toFragment) {
@@ -188,7 +188,7 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
     }
 
     /**
-     * It is recommended to use {@link SupportFragment#startWithPopTo(ISupportFragment, Class, boolean)}.
+     * It is recommended to use {@link com.wenh.baselibrary.fragement.SupportFragment#startWithPopTo(ISupportFragment, Class, boolean)}.
      *
      * @see #popTo(Class, boolean)
      * +
@@ -199,7 +199,7 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
     }
 
     /**
-     * It is recommended to use {@link SupportFragment#replaceFragment(ISupportFragment, boolean)}.
+     * It is recommended to use {@link com.wenh.baselibrary.fragement.SupportFragment#replaceFragment(ISupportFragment, boolean)}.
      */
     public void replaceFragment(ISupportFragment toFragment, boolean addToBackStack) {
         mDelegate.replaceFragment(toFragment, addToBackStack);

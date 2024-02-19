@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.wenh.baselibrary.widget.ShadowRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/view_main"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/round_orange_lightest_5dp"
+    android:padding="12dp"
+    fresco:shadow_blur="10dp"
+    fresco:shadow_color="@color/black30"
+    fresco:shadow_radius="5dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/snack_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:src="@mipmap/notice_orange" />
+
+        <TextView
+            android:id="@+id/snack_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/text" />
+    </LinearLayout>
+
+</com.wenh.baselibrary.widget.ShadowRelativeLayout>

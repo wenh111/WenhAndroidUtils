@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <color name="accent">#FF3700B3</color>
+    <color name="bg">#f6f6f6</color>
+    <color name="black">#FF000000</color>
+    <color name="black30">#4C000000</color>
+    <color name="black80">#CC000000</color>
+    <color name="blue">#307CFF</color>
+    <color name="blue_light">#439AD4</color>
+    <color name="blue_lightest">#EBF2FF</color>
+    <color name="brown">#BF8C00</color>
+    <color name="brown_lightest">#F9F4E6</color>
+    <color name="default_background_color">@android:color/transparent</color>
+    <color name="default_progress_color">#33b5e5</color>
+    <color name="default_stroke_color">#33b5e5</color>
+    <color name="default_text_color">#333333</color>
+    <color name="disable">#888888</color>
+    <color name="gray">#EEEEEE</color>
+    <color name="gray_darkest">#222222</color>
+    <color name="green">#26CA83</color>
+    <color name="green_lightest">#F4FCF9</color>
+    <color name="line_gray">#DDDDDD</color>
+    <color name="orange">#FF9237</color>
+    <color name="orange_lightest">#FFF9F5</color>
+    <color name="pink">#FF60FF</color>
+    <color name="pink40">#66C4261D</color>
+    <color name="pink_light">#FFF7F7</color>
+    <color name="primary">#307CFF</color>
+    <color name="primary_dark">#FF6200EE</color>
+    <color name="red">#C4261D</color>
+    <color name="red_light">#FF6160</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="text">#666666</color>
+    <color name="text_dark">#4D4D4D</color>
+    <color name="text_darker">#333333</color>
+    <color name="text_light">#999999</color>
+    <color name="text_lightest">#cccccc</color>
+    <color name="top_bar_bg">#2D3447</color>
+    <color name="transparent_40">#40000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white20">#33FFFFFF</color>
+    <color name="white30">#4CFFFFFF</color>
+    <color name="white50">#80FFFFFF</color>
+    <drawable name="transparent">#00000000</drawable>
+    <string name="afternoon" translatable="false">下午</string>
+    <string name="app_name" translatable="false">框架</string>
+    <string name="back" translatable="false">返回</string>
+    <string name="before_dawn" translatable="false">凌晨</string>
+    <string name="empty_data" translatable="false">暂无数据</string>
+    <string name="error_tips" translatable="false">很抱歉，加载失败了！</string>
+    <string name="forenoon" translatable="false">上午</string>
+    <string name="late_night" translatable="false">深夜</string>
+    <string name="morning" translatable="false">早上</string>
+    <string name="night" translatable="false">晚上</string>
+    <string name="noon" translatable="false">中午</string>
+    <string name="toward_evening" translatable="false">傍晚</string>
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">@color/primary</item>
+    <item name="colorPrimaryDark">@color/primary_dark</item>
+    <item name="colorAccent">@color/accent</item>
+    <item name="actionMenuTextColor">#ffffff</item>
+
+    //沉浸状态栏
+    <item name="android:windowIsTranslucent">true</item>
+    <item name="android:windowTranslucentStatus">true</item>
+
+    //ActionBarDrawerToggle设置颜色
+    <item name="colorControlNormal">@android:color/white</item>
+  </style>
+    <style name="DefaultTheme" parent="AppTheme">
+    <item name="android:windowBackground">@color/bg</item>
+    <item name="android:windowIsTranslucent">false</item>
+    <item name="android:windowFullscreen">true</item>
+  </style>
+    <style name="FullDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+    <!--是否悬浮在activity上-->
+    <item name="android:windowIsFloating">true</item>
+    <item name="android:windowBackground">@android:color/transparent</item>
+    <item name="android:backgroundDimEnabled">true</item>
+    <!--透明是否-->
+    <item name="android:windowIsTranslucent">true</item>
+    <item name="android:background">@null</item>
+    <!--设置没有窗口标题、dialog标题等各种标题-->
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:title">@null</item>
+    <item name="windowNoTitle">true</item>
+    <item name="android:dialogTitle">@null</item>
+  </style>
+    <style name="SplashTheme" parent="AppTheme">
+    <item name="android:windowBackground">@color/white</item>
+    <item name="android:windowIsTranslucent">false</item>
+    <item name="android:windowFullscreen">true</item>
+  </style>
+    <style name="SwitchButton">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_gravity">center</item>
+    <item name="switchTextExtra">32dp</item>
+    <item name="switchThumbWidth">28dp</item>
+    <item name="switchThumbHeight">28dp</item>
+    <item name="switchThumbColor">@color/white</item>
+    <item name="switchBackDrawable">@drawable/switch_bg</item>
+  </style>
+    <style name="Theme.PadVoting" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <!-- Primary brand color. -->
+    <item name="colorPrimary">@color/primary</item>
+    <item name="colorPrimaryVariant">@color/accent</item>
+    <item name="colorOnPrimary">@color/white</item>
+    <!-- Secondary brand color. -->
+    <item name="colorSecondary">@color/teal_200</item>
+    <item name="colorSecondaryVariant">@color/teal_700</item>
+    <item name="colorOnSecondary">@color/black</item>
+    <!-- Status bar color. -->
+    <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
+    <!-- Customize your theme here. -->
+  </style>
+    <style name="UpdateAppDialog" parent="android:style/Theme.Dialog">
+    <item name="android:background">@android:color/transparent</item>
+    <item name="android:windowBackground">@android:color/transparent</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowCloseOnTouchOutside">false</item>
+  </style>
+    <style name="UpdateAppNumberProgressBar">
+    <item name="android:layout_height">60dp</item>
+    <item name="android:layout_width">match_parent</item>
+
+    <item name="progress_max">100</item>
+    <item name="progress_current">0</item>
+
+    <item name="progress_unreached_color">@color/text</item>
+    <item name="progress_reached_color">@color/text_lightest</item>
+
+    <item name="progress_text_size">20sp</item>
+    <item name="progress_text_color">@color/text_lightest</item>
+
+    <item name="progress_reached_bar_height">20dp</item>
+    <item name="progress_unreached_bar_height">20dp</item>
+  </style>
+    <style name="button" parent="wrap">
+    <item name="android:textSize">16sp</item>
+    <item name="android:paddingTop">11dp</item>
+    <item name="android:paddingBottom">11dp</item>
+    <item name="android:paddingLeft">24dp</item>
+    <item name="android:paddingRight">24dp</item>
+  </style>
+    <style name="button.blue">
+    <item name="android:background">@drawable/round_blue</item>
+    <item name="android:textColor">@color/white</item>
+  </style>
+    <style name="match">
+    <item name="android:layout_height">match_parent</item>
+    <item name="android:layout_width">match_parent</item>
+  </style>
+    <style name="match_height">
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_height">match_parent</item>
+  </style>
+    <style name="match_width">
+    <item name="android:layout_height">0dp</item>
+    <item name="android:layout_width">match_parent</item>
+  </style>
+    <style name="match_wrap">
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_width">match_parent</item>
+  </style>
+    <style name="match_wrap.text">
+    <item name="android:textColor">@color/text</item>
+  </style>
+    <style name="match_wrap.text_darker">
+    <item name="android:textColor">@color/text_darker</item>
+  </style>
+    <style name="match_wrap.text_darker.big">
+    <item name="android:textSize">20sp</item>
+  </style>
+    <style name="match_wrap.text_darker.normal">
+    <item name="android:textSize">16sp</item>
+  </style>
+    <style name="match_wrap.text_darker.small">
+    <item name="android:textSize">14sp</item>
+  </style>
+    <style name="match_wrap.white">
+    <item name="android:textColor">@color/white</item>
+  </style>
+    <style name="match_wrap.white.normal">
+    <item name="android:textSize">16sp</item>
+  </style>
+    <style name="no_width_height">
+    <item name="android:layout_height">0dp</item>
+    <item name="android:layout_width">0dp</item>
+  </style>
+    <style name="wrap">
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_width">wrap_content</item>
+  </style>
+    <style name="wrap.blue">
+    <item name="android:textColor">@color/blue</item>
+  </style>
+    <style name="wrap.bottom">
+    <item name="android:layout_alignParentBottom">true</item>
+  </style>
+    <style name="wrap.bottom.center">
+    <item name="android:layout_centerHorizontal">true</item>
+  </style>
+    <style name="wrap.text">
+    <item name="android:textColor">@color/text</item>
+  </style>
+    <style name="wrap.text.normal">
+    <item name="android:textSize">16sp</item>
+  </style>
+    <style name="wrap.text_dark">
+    <item name="android:textColor">@color/text_dark</item>
+  </style>
+    <style name="wrap.text_dark.big">
+    <item name="android:textSize">20sp</item>
+  </style>
+    <style name="wrap.text_darker">
+    <item name="android:textColor">@color/text_darker</item>
+  </style>
+    <style name="wrap.text_light">
+    <item name="android:textColor">@color/text_light</item>
+  </style>
+    <style name="wrap.text_light.bottom">
+    <item name="android:layout_alignParentBottom">true</item>
+  </style>
+    <style name="wrap.text_light.bottom.center">
+    <item name="android:layout_centerHorizontal">true</item>
+  </style>
+    <style name="wrap.text_light.normal">
+    <item name="android:textSize">16sp</item>
+  </style>
+    <style name="wrap.text_light.small">
+    <item name="android:textSize">14sp</item>
+  </style>
+    <style name="wrap.text_lightest">
+    <item name="android:textColor">@color/text_lightest</item>
+  </style>
+    <style name="wrap.white">
+    <item name="android:textColor">@color/white</item>
+  </style>
+    <style name="wrap.white.big">
+    <item name="android:textSize">20sp</item>
+  </style>
+    <style name="wrap.white.normal">
+    <item name="android:textSize">16sp</item>
+  </style>
+    <declare-styleable name="LoadingProgressBarView">
+        <attr name="android:text"/>
+        <attr name="android:textSize"/>
+        <attr name="android:textColor"/>
+        <attr format="integer" name="ffProgress"/>
+        <attr format="integer" name="ffMax"/>
+        <attr format="integer" name="ffStartAngle"/>
+        <attr format="boolean" name="ffInverted"/>
+        <attr format="boolean" name="ffCounterclockwise"/>
+        <attr format="dimension" name="ffStrokeWidth"/>
+        <attr format="reference|color" name="ffBackgroundColor"/>
+        <attr format="reference|color" name="ffProgressColor"/>
+        <attr format="reference|color" name="ffStrokeColor"/>
+        <attr format="boolean" name="ffShowStroke"/>
+        <attr format="boolean" name="ffShowText"/>
+        <attr format="string" name="ffTypeface"/>
+        <attr format="reference" name="ffImage"/>
+        <attr format="enum" name="ffProgressFillType">
+            <enum name="radial" value="0"/>
+            <enum name="center" value="1"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="ShadowRelativeLayout">
+        <attr format="color" name="shadow_color"/>
+        <attr format="dimension" name="shadow_radius"/>
+        <attr format="dimension" name="shadow_blur"/>
+        <attr format="dimension" name="shadow_dx"/>
+        <attr format="dimension" name="shadow_dy"/>
+    </declare-styleable>
+    <declare-styleable name="SwitchButton" ns1:ignore="ResourceName">
+        <attr format="reference" name="switchThumbDrawable"/>
+        <attr format="color|reference" name="switchThumbColor"/>
+        <attr format="dimension|reference" name="switchThumbMargin"/>
+        <attr format="dimension|reference" name="switchThumbMarginTop"/>
+        <attr format="dimension|reference" name="switchThumbMarginBottom"/>
+        <attr format="dimension|reference" name="switchThumbMarginLeft"/>
+        <attr format="dimension|reference" name="switchThumbMarginRight"/>
+        <attr format="dimension|reference" name="switchThumbWidth"/>
+        <attr format="dimension|reference" name="switchThumbHeight"/>
+        <attr format="dimension|reference" name="switchThumbRadius"/>
+        <attr format="dimension|reference" name="switchBackRadius"/>
+        <attr format="reference" name="switchBackDrawable"/>
+        <attr format="color|reference" name="switchBackColor"/>
+        <attr format="boolean" name="switchFadeBack"/>
+        <attr format="float" name="switchThumbRangeRatio"/>
+        <attr format="integer" name="switchAnimationDuration"/>
+        <attr format="color|reference" name="switchTintColor"/>
+        <attr format="string" name="switchTextOn"/>
+        <attr format="string" name="switchTextOff"/>
+        <attr format="dimension" name="switchTextThumbInset"/>
+        <attr format="dimension" name="switchTextExtra"/>
+        <attr format="dimension" name="switchTextAdjust"/>
+    </declare-styleable>
+    <declare-styleable name="UpdateAppNumberProgressBar">
+        <attr format="integer" name="progress_current"/>
+        <attr format="integer" name="progress_max"/>
+
+        <attr format="color" name="progress_unreached_color"/>
+        <attr format="color" name="progress_reached_color"/>
+
+        <attr format="dimension" name="progress_reached_bar_height"/>
+        <attr format="dimension" name="progress_unreached_bar_height"/>
+
+        <attr format="dimension" name="progress_text_size"/>
+        <attr format="color" name="progress_text_color"/>
+
+        <attr format="dimension" name="progress_text_offset"/>
+
+        <attr format="enum" name="progress_text_visibility">
+            <enum name="visible" value="0"/>
+            <enum name="invisible" value="1"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="Widget">
+        <attr name="android:text"/>
+        <attr name="android:color"/>
+        <attr name="android:maxHeight"/>
+    </declare-styleable>
+</resources>

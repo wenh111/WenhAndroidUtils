@@ -13,6 +13,11 @@
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/item_list" />
+        tools:listitem="@layout/item_list"
+        android:visibility="gone"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/frameLayout"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

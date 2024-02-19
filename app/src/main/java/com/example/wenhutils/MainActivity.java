@@ -9,15 +9,22 @@ import android.os.Handler;
 import com.billy.android.swipe.SmartSwipeRefresh;
 import com.billy.android.swipe.consumer.SlidingConsumer;
 import com.billy.android.swipe.refresh.ClassicFooter;
+import com.example.wenhutils.databinding.ActivityMainBinding;
+import com.wenh.baselibrary.FragmentUtils;
+import com.wenh.baselibrary.acitvity.SimpleActivity;
+import com.wenh.baselibrary.fragement.SimpleFragment;
+import com.wenh.baselibrary.mvpbase.BaseActivity;
+import com.wenh.baselibrary.mvpbase.BasePresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity<ActivityMainBinding,MainPresenter> implements MainContract.View {
 
-    private RecyclerView recyclerView;
+//    private RecyclerView recyclerView;
+/*
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onLoadMore(final SmartSwipeRefresh ssr) {
                 //加载下一页数据
-                /*loadMoreData(new Callback() {
+                */
+/*loadMoreData(new Callback() {
                     void success() {
                         ssr.finished(true);
                         // 是否已全部加载完成
@@ -70,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
                         ssr.finished(false);
                     }
                 })*/
+/*
+
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -92,5 +102,17 @@ public class MainActivity extends AppCompatActivity {
                 .setFooter(new ClassicFooter(this))
                 .getSwipeConsumer().as(SlidingConsumer.class).setDrawerExpandable(true);
 
+
+
+    }*/
+
+    @Override
+    protected void initial() {
+        mPresenter.init();
+    }
+
+    @Override
+    public void changeFragment() {
+        loadRootFragment(R.id.frameLayout, new TestFragment());
     }
 }
