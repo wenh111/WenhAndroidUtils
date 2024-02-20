@@ -1,4 +1,4 @@
-package com.wenh.baselibrary;
+package com.wenh.baselibrary.util;
 
 import android.content.Context;
 import android.view.Gravity;
@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
+import com.wenh.baselibrary.Frame;
+import com.wenh.baselibrary.R;
 
 public class ToastUtil {
 

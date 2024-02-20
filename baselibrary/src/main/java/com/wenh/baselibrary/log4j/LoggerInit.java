@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
-import com.wenh.baselibrary.TimeUtil;
+import com.wenh.baselibrary.util.TimeUtil;
 
 import org.apache.log4j.Level;
 

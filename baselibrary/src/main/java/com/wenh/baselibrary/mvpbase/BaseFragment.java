@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 
 import com.wenh.baselibrary.RootView;
-import com.wenh.baselibrary.ToastUtil;
+import com.wenh.baselibrary.util.ToastUtil;
 import com.wenh.baselibrary.fragement.SimpleFragment;
 
 import java.lang.reflect.ParameterizedType;
