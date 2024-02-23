@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.library'
 }
-
 android {
     namespace 'com.wenh.baselibrary'
     compileSdk 33
@@ -11,6 +10,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
     }
 
     buildTypes {
@@ -29,17 +29,21 @@ android {
 }
 
 dependencies {
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
     implementation 'com.google.android.material:material:1.1.0-alpha02'
     implementation 'androidx.databinding:viewbinding:8.2.2'
+    implementation 'com.squareup:javapoet:1.13.0'
+    api 'com.billy.android:smart-swipe:1.1.2'
+    //android x环境下兼容NestedScrolling
+    api 'com.billy.android:smart-swipe-x:1.1.0'
     api "io.reactivex.rxjava2:rxjava:2.2.0"
     api "io.reactivex.rxjava2:rxandroid:2.1.0"
-    api "com.google.code.gson:gson:2.8.9"
+    api "com.google.code.gson:gson:2.10.1"
     api "com.squareup.retrofit2:retrofit:2.2.0"
     api "com.squareup.retrofit2:converter-gson:2.2.0"
     api "com.squareup.retrofit2:adapter-rxjava2:2.2.0"
-    api "com.squareup.okhttp3:okhttp:3.12.1"
+    api "com.squareup.okhttp3:okhttp:3.14.9"
     api 'commons-io:commons-io:2.6'
     api 'com.github.getActivity:XXPermissions:18.2'
     api "com.squareup.okhttp3:logging-interceptor:3.12.1"
@@ -49,7 +53,10 @@ dependencies {
     api 'org.greenrobot:eventbus:3.2.0'
     api 'io.reactivex.rxjava3:rxandroid:3.0.0'
     api 'io.reactivex.rxjava3:rxjava:3.0.0'
+    api 'com.liulishuo.filedownloader:library:1.7.7'
+    implementation 'androidx.startup:startup-runtime:1.1.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
 }

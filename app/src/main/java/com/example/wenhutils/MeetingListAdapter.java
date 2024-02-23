@@ -11,8 +11,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.billy.android.swipe.SmartSwipe;
 import com.billy.android.swipe.consumer.SlidingConsumer;
-import com.zhy.adapter.recyclerview.CommonAdapter;
-import com.zhy.adapter.recyclerview.base.ViewHolder;
+import com.wenh.baselibrary.adapter.CommonAdapter;
+import com.wenh.baselibrary.adapter.adapterbase.ViewHolder;
 
 
 import java.util.List;

@@ -13,7 +13,11 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
-
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: "baselibrary"]
+            }
+        }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -43,9 +47,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'com.zhy:base-rvadapter:3.0.3'
-    api 'com.billy.android:smart-swipe:1.1.2'
-    //android x环境下兼容NestedScrolling
-    api 'com.billy.android:smart-swipe-x:1.1.0'
     implementation 'dev.ahamed.mva2:adapter:2.0.0'
 }
 //上传的目标仓库地址

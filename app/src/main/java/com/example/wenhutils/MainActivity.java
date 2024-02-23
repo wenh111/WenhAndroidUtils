@@ -1,27 +1,10 @@
 package com.example.wenhutils;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.os.Handler;
-
-import com.billy.android.swipe.SmartSwipeRefresh;
-import com.billy.android.swipe.consumer.SlidingConsumer;
-import com.billy.android.swipe.refresh.ClassicFooter;
 import com.example.wenhutils.databinding.ActivityMainBinding;
-import com.wenh.baselibrary.FragmentUtils;
-import com.wenh.baselibrary.acitvity.SimpleActivity;
-import com.wenh.baselibrary.fragement.SimpleFragment;
 import com.wenh.baselibrary.mvpbase.BaseActivity;
-import com.wenh.baselibrary.mvpbase.BasePresenter;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
-public class MainActivity extends BaseActivity<ActivityMainBinding,MainPresenter> implements MainContract.View {
+public class MainActivity extends BaseActivity<ActivityMainBinding, MainPresenter> implements MainContract.View {
 
 //    private RecyclerView recyclerView;
 /*
