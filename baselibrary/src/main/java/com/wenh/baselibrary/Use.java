@@ -2,6 +2,8 @@ package com.wenh.baselibrary;
 
 import android.content.Context;
 
+import com.wenh.baselibrary.log4j.LoggerInit;
+
 public class Use {
 
     public static final String TAG = "Use";
@@ -25,7 +27,7 @@ public class Use {
      */
     public static void init(Context context) {
         instance().mContext = context;
-        Logger.init(context);
+        LoggerInit.init(context, context.getPackageName());
     }
 
 
