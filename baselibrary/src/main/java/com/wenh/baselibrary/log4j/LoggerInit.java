@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class LoggerInit {
-    public static void init(Context context, String packageName) {
+    public static void init(Context context) {
         LogConfigurator logConfigurator = new LogConfigurator();
         String[] permissions = {
                 Permission.MANAGE_EXTERNAL_STORAGE//管理外部存储
@@ -45,7 +45,7 @@ public class LoggerInit {
                             logConfigurator.setRootLevel(Level.INFO);
                             logConfigurator.setUseFileAppender(true);
                             logConfigurator.setMaxFileSize(1024 * 1024 * 1024);
-                            logConfigurator.setLevel(packageName, Level.INFO);
+                            logConfigurator.setLevel(context.getPackageName(), Level.INFO);
                             logConfigurator.configure();
                         }
 

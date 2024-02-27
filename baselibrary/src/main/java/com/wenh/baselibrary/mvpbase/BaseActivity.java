@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.viewbinding.ViewBinding;
 
 import com.wenh.baselibrary.RootView;
-import com.wenh.baselibrary.util.ToastUtil;
 import com.wenh.baselibrary.acitvity.SimpleActivity;
+import com.wenh.baselibrary.util.ToastUtil;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -21,6 +21,7 @@ public abstract class BaseActivity<V extends ViewBinding, T extends BasePresente
 
     @Override
     protected void onViewCreated() {
+//        com.gonsin.i18n.lib.T.initFactory(this);
         super.onViewCreated();
         inject();
         //if (mPresenter != null)
@@ -30,6 +31,7 @@ public abstract class BaseActivity<V extends ViewBinding, T extends BasePresente
         if (type instanceof ParameterizedType)
             mPresenter = viewRoot().createPresenter((ParameterizedType)type);
         viewRoot().bindPresenter();
+
     }
 
     @Override

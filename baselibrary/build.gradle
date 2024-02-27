@@ -54,6 +54,7 @@ dependencies {
     api 'io.reactivex.rxjava3:rxandroid:3.0.0'
     api 'io.reactivex.rxjava3:rxjava:3.0.0'
     api 'com.liulishuo.filedownloader:library:1.7.7'
+    api 'com.gonsin:gonsin-i18n:1.0.14-SNAPSHOT'
     implementation 'androidx.startup:startup-runtime:1.1.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

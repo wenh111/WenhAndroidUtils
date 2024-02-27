@@ -21,8 +21,7 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        LoggerInit.init(this, getPackageName());
-        Frame.init(this);
+        Base.init(this);
         FileDownloader.setupOnApplicationOnCreate(this)
                 .connectionCreator(new FileDownloadUrlConnection
                         .Creator(new FileDownloadUrlConnection.Configuration()
@@ -31,5 +30,8 @@ public class BaseApplication extends Application {
                 ))
                 .commit();
 
+
     }
+
+
 }

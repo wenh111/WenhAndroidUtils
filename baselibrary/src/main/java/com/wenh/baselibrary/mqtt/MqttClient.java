@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.util.Log;
 
 
+import com.wenh.baselibrary.Base;
 import com.wenh.baselibrary.callback.Callback;
 
 import org.apache.log4j.Logger;
@@ -37,15 +38,14 @@ public class MqttClient {
     public String CLIENT_ID;//客户端ID，一般以客户端唯一标识符表示，这里用设备序列号表示
 
     private boolean autoReConnect = true;
-    private final Context context;
+
     public static Logger logger = Logger.getLogger(MqttClient.class);
 
     public void setAutoReConnect(boolean autoReConnect) {
         this.autoReConnect = autoReConnect;
     }
 
-    public MqttClient(Context context, String clientId, String username, String serverIp, String tcpPort) {
-        this.context = context;
+    public MqttClient(String clientId, String username, String serverIp, String tcpPort) {
         CLIENT_ID = clientId;
         USERNAME = username;
         setHost(serverIp, tcpPort);
@@ -95,7 +95,7 @@ public class MqttClient {
      */
     private void init() {
         String serverURI = HOST; //服务器地址（协议+地址+端口号）
-        mqttAndroidClient = new MqttAndroidClient(context, serverURI, CLIENT_ID);
+        mqttAndroidClient = new MqttAndroidClient(Base.getContext(), serverURI, CLIENT_ID);
         mqttAndroidClient.setCallback(mqttCallback); //设置监听订阅消息的回调
         mMqttConnectOptions = new MqttConnectOptions();
         mMqttConnectOptions.setCleanSession(true); //设置是否清除缓存
@@ -150,7 +150,7 @@ public class MqttClient {
      * 判断网络是否连接
      */
     private boolean isNetwork() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connectivityManager = (ConnectivityManager) Base.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo info = connectivityManager.getActiveNetworkInfo();
         if (info != null && info.isAvailable()) {
             String name = info.getTypeName();
@@ -183,7 +183,7 @@ public class MqttClient {
      * QoS2，Exactly once，确保只有一次（开销大）。
      */
     public void subscribe(String topic) {
-        if (mqttAndroidClient == null){
+        if (mqttAndroidClient == null) {
             return;
         }
         try {

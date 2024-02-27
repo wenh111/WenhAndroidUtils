@@ -4,13 +4,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.wenh.baselibrary.Frame;
+import com.wenh.baselibrary.Constants;
 
 
-/**
- * @author: Est <codeest.dev@gmail.com>
- * @date: 2017/4/21
- * @description:
- */
+
 
 public class Prefers {
 
@@ -79,6 +76,10 @@ public class Prefers {
 
     //===================================================================================
 
+    private static final String SERVICE_ADDRESS = "SERVICE_ADDRESS";
+    private static final String HTTP_PORT = "HTTP_PORT";
+
+    private static final String MQTT_PORT = "MQTT_PORT";
     private static final String SHARED_PREFERENCES_NAME = "SHARED_PREFERENCES";
 
     private final SharedPreferences mSPrefs;
@@ -147,4 +148,35 @@ public class Prefers {
     }
 
 
+    public String sessionId() {
+        return getString(SESSION_ID);
+    }
+
+    public String serviceAddress() {
+        return getString(SERVICE_ADDRESS, "192.168.2.166");
+    }
+
+    public String httpPort() {
+        return getString(HTTP_PORT, Constants.DE_HTTP_PORT);
+    }
+
+    public String language() {
+        return getString(LANGUAGE, Constants.CHINESE);
+    }
+    public String mqttPort() {
+        return getString(MQTT_PORT, "1883");
+    }
+
+    public void setServiceAddress(String service) {
+        putString(SERVICE_ADDRESS, service);
+    }
+
+
+    public void setHttpPort(String port) {
+        putString(HTTP_PORT, port);
+    }
+
+    public void setMqttPort(String port) {
+        putString(MQTT_PORT, port);
+    }
 }

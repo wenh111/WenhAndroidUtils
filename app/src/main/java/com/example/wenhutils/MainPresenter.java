@@ -2,13 +2,12 @@ package com.example.wenhutils;
 
 import android.annotation.SuppressLint;
 
+import com.wenh.baselibrary.Mods;
 import com.wenh.baselibrary.bean.DeviceBean;
 import com.wenh.baselibrary.callback.Callback;
 import com.wenh.baselibrary.log4j.LoggerInit;
-import com.wenh.baselibrary.mqtt.MqttHelper;
 import com.wenh.baselibrary.mvpbase.RxPresenter;
 import com.wenh.baselibrary.network.Apis;
-import com.wenh.baselibrary.network.HttpModule;
 import com.wenh.baselibrary.network.HttpResponse;
 
 import org.apache.log4j.Logger;
@@ -29,13 +28,15 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
 
     @Override
     public void init() {
-        connectMqtt();
+        Mods.prefers().setServiceAddress("192.168.2.166");
+        Mods.prefers().setHttpPort("80");
+        Mods.prefers().setMqttPort("1883");
         mView.changeFragment();
-        HttpModule httpModule = new HttpModule("6c1524579851", "192.168.2.166", "80");
-        apis = httpModule.provideService();
 
+        apis = Mods.apis();
+        connectMqtt();
         EventBus.getDefault().register(this);
-        LoggerInit.init(mView.getActivity(), mView.getActivity().getPackageName());
+        LoggerInit.init(mView.getActivity());
         Logger logger = Logger.getLogger(MainPresenter.class);
         logger.info("myinit");
         deviceLogin();
@@ -67,8 +68,8 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
     }
 
     private void connectMqtt() {
-        MqttHelper.getInstance().connect(mView.getActivity(), "6c1524579851", "6c1524579851", "192.168.2.166", "1883");
-        MqttHelper.getInstance().setConnectCallback(this);
+        Mods.mqttModel().connect();
+        Mods.mqttModel().setConnectCallback(this);
     }
 
     @Override
@@ -84,7 +85,7 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
 
     @Override
     public void onCallback(Boolean result) {
-        MqttHelper.getInstance().subscribe("venus/commit/commit_approved", MeetingMessageArgs.class);
+        Mods.mqttModel().subscribe("venus/commit/commit_approved", MeetingMessageArgs.class);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

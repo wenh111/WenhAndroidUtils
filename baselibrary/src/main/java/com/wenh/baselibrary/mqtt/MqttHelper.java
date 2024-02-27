@@ -1,11 +1,12 @@
 package com.wenh.baselibrary.mqtt;
 
-import android.content.Context;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.wenh.baselibrary.Base;
+import com.wenh.baselibrary.Mods;
 import com.wenh.baselibrary.callback.Callback;
+import com.wenh.baselibrary.util.LicenseUtil;
 
 import org.apache.log4j.Logger;
 import org.greenrobot.eventbus.EventBus;
@@ -22,7 +23,12 @@ public class MqttHelper implements SubscribeCallback<String>, Callback<Boolean> 
     private Callback<Boolean> connectCallback;
     private Map<String, Class> classMap = new HashMap<>();
 
-    private MqttHelper() {
+    public MqttHelper() {
+        if (mqttClient == null) {
+            mqttClient = new MqttClient(LicenseUtil.getMachineUUID(Base.getContext()), LicenseUtil.getMachineUUID(Base.getContext()), Mods.prefers().serviceAddress(), Mods.prefers().mqttPort());
+            mqttClient.setSubscribeCallback(this);
+            mqttClient.setConnectCallback(this);
+        }
     }
 
     public void setConnectCallback(Callback<Boolean> connectCallback) {
@@ -52,20 +58,15 @@ public class MqttHelper implements SubscribeCallback<String>, Callback<Boolean> 
         }
     }
 
-    private static final class InstanceHolder {
+   /* private static final class InstanceHolder {
         static final MqttHelper instance = new MqttHelper();
     }
 
     public static MqttHelper getInstance() {
         return InstanceHolder.instance;
-    }
+    }*/
 
-    public void connect(Context context, String clientId, String username, String serverIp, String tcpPort) {
-        if (mqttClient == null) {
-            mqttClient = new MqttClient(context, clientId, username, serverIp, tcpPort);
-            mqttClient.setSubscribeCallback(this);
-            mqttClient.setConnectCallback(this);
-        }
+    public void connect() {
         if (!mqttClient.isConnected()) {
             mqttClient.setAutoReConnect(true);
             mqttClient.connect();

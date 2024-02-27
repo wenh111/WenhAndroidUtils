@@ -2,6 +2,7 @@ package com.wenh.baselibrary.network;
 
 
 import com.google.gson.Gson;
+import com.wenh.baselibrary.Mods;
 
 import java.util.concurrent.TimeUnit;
 
@@ -15,10 +16,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class HttpModule {
     private final String address, port, sessionId;
 
-    public HttpModule(String sessionId, String address, String port) {
-        this.sessionId = sessionId;
-        this.address = address;
-        this.port = port;
+    public HttpModule(/*String sessionId, String address, String port*/) {
+        this.sessionId = Mods.prefers().sessionId();
+        this.address = Mods.prefers().serviceAddress();
+        this.port = Mods.prefers().httpPort();;
     }
 
     Retrofit.Builder provideRetrofitBuilder() {
