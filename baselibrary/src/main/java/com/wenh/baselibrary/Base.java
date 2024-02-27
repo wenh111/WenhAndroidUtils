@@ -68,6 +68,10 @@ public class Base {
         return getContext().getResources().getString(resId, formatArgs);
     }
 
+    public static String getI18nString(int resId) {
+        return T.t(getContext(),resId);
+    }
+
     private long mServerTimeOffset;
 
     public static long getServerTime() {
