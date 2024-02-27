@@ -20,8 +20,8 @@ public abstract class SimpleActivity <V extends ViewBinding> extends SupportActi
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+//        com.gonsin.i18n.lib.T.initFactory(this);
         super.onCreate(savedInstanceState);
-
         ParameterizedType type = (ParameterizedType) getClass().getGenericSuperclass();
         Class cls = (Class) type.getActualTypeArguments()[0];
         try {

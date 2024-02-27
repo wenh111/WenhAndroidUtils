@@ -12,15 +12,7 @@ import java.util.TimeZone;
 
 
 /**
- * @author : Linxu
- * @create : 2021/9/16
- * ^__^
- * (**)\ _ __ _
- * (__)\       )\/\
- * U  ||------|
- * ||     ||
- * ==============================
- * @desc : TODO
+ * 时间工具类
  */
 public class TimeUtil {
 

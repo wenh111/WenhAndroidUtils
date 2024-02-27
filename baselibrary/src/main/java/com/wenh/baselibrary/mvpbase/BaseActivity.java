@@ -21,7 +21,7 @@ public abstract class BaseActivity<V extends ViewBinding, T extends BasePresente
 
     @Override
     protected void onViewCreated() {
-//        com.gonsin.i18n.lib.T.initFactory(this);
+
         super.onViewCreated();
         inject();
         //if (mPresenter != null)

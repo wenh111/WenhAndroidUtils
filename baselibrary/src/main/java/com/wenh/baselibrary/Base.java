@@ -31,7 +31,7 @@ public class Base {
     public static void init(Context context) {
         Frame.init(context);
         getInstance().mContext = context;
-        getInstance().initI18nLanguage();
+//        getInstance().initI18nLanguage();
     }
 
     private void initI18nLanguage() {
