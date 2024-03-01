@@ -15,10 +15,15 @@ public class Base {
     //程序的Context对象
     private Context mContext;
 
-    /** 保证只有一个Base实例 */
-    private Base() {}
+    /**
+     * 保证只有一个Base实例
+     */
+    private Base() {
+    }
 
-    /** 获取Base实例 ,单例模式 */
+    /**
+     * 获取Base实例 ,单例模式
+     */
     public static Base getInstance() {
         return INSTANCE;
     }
@@ -61,15 +66,21 @@ public class Base {
 
 
     public static String getString(int resId) {
-        return getContext().getResources().getString(resId);
+        if (Mods.prefers().language().equals(Constants.CHINESE))
+            return getContext().getResources().getString(resId);
+        else return T.t(getContext(), resId);
     }
 
     public static String getString(int resId, Object... formatArgs) {
-        return getContext().getResources().getString(resId, formatArgs);
-    }
-
-    public static String getI18nString(int resId) {
-        return T.t(getContext(),resId);
+        if (Mods.prefers().language().equals(Constants.CHINESE))
+            return getContext().getResources().getString(resId, formatArgs);
+        else {
+            try {
+                return T.t(getContext(), resId, formatArgs);
+            } catch (Throwable e) {
+                return getContext().getResources().getString(resId, formatArgs);
+            }
+        }
     }
 
     private long mServerTimeOffset;
@@ -83,9 +94,11 @@ public class Base {
     }
 
     private String apiUrl;
+
     public static String getApiUrl() {
         return getInstance().apiUrl;
     }
+
     public static void setApiUrl(String url) {
         getInstance().apiUrl = url;
     }

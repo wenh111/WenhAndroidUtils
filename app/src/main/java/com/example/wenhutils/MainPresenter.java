@@ -31,7 +31,7 @@ import io.reactivex.rxjava3.functions.Function;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import retrofit2.Response;
 
-public class MainPresenter extends RxPresenter<MainContract.View> implements MainContract.Presenter, Callback<Boolean>,OnPermissionCallback {
+public class MainPresenter extends RxPresenter<MainContract.View> implements MainContract.Presenter, Callback<Boolean>, OnPermissionCallback {
     private Logger logger = Logger.getLogger(MainPresenter.class);
     private Apis apis;
 
@@ -51,9 +51,9 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
         String[] permissions = {
                 /*Permission.READ_MEDIA_IMAGES,
                 Permission.READ_MEDIA_VIDEO,
+                Permission.WRITE_EXTERNAL_STORAGE,
                 Permission.READ_MEDIA_AUDIO,*/
                 Permission.READ_PHONE_STATE,//获取手机状态
-                //Permission.WRITE_EXTERNAL_STORAGE,
                 Permission.CAMERA,//相机
                 Permission.SYSTEM_ALERT_WINDOW,//悬浮窗
                 Permission.SCHEDULE_EXACT_ALARM,//定时
@@ -82,11 +82,11 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
         }).subscribe(new Consumer<Boolean>() {
             @Override
             public void accept(Boolean aBoolean) throws Throwable {
-                if(aBoolean){
+                if (aBoolean) {
                     Threads.ui(new Runnable() {
                         @Override
                         public void run() {
-                            NoticeUtil.ins().success("登录成功");
+                            NoticeUtil.ins().error("登录成功");
                         }
                     });
                 }
@@ -118,6 +118,7 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
     @Override
     public void onCallback(Boolean result) {
         Mods.mqttModel().subscribe("venus/commit/commit_approved", MeetingMessageArgs.class);
+        Mods.mqttModel().subscribe("venus/meeting/addNotice/" + "room_d4DPHkcJf7PijajDRlKFxwkm977", MeetingBean.class);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -125,9 +126,14 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
         logger.info("收到消息：" + myEvent.toString());
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(MeetingBean myEvent) {
+        logger.info("收到消息：" + myEvent.toString());
+    }
+
     @Override
     public void onGranted(@NonNull List<String> permissions, boolean allGranted) {
-        if(allGranted){
+        if (allGranted) {
             deviceLogin();
         }
     }

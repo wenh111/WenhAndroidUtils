@@ -3,39 +3,41 @@
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
+
     <com.wenh.baselibrary.widget.ShadowRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:fresco="http://schemas.android.com/apk/res-auto"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content" android:layout_gravity="center"
-      android:background="@drawable/round_notice90_8dp"
-      android:padding="12dp"
-      fresco:shadow_blur="10dp"
-      fresco:shadow_color="@color/theme_shadow76"
-      fresco:shadow_radius="8dp">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/round_notice90_8dp"
+        android:padding="12dp"
+        fresco:shadow_blur="10dp"
+        fresco:shadow_color="@color/theme_shadow76"
+        fresco:shadow_radius="8dp">
+
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:background="@android:color/transparent"
             android:gravity="center"
-            android:layout_gravity="center"
-            android:layout_marginEnd="28dp"
-            android:padding="20dp">
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp">
+
             <ImageView
                 android:id="@+id/notice_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
                 android:layout_marginEnd="16dp"
-                android:src="@mipmap/icon_error"/>
+                android:src="@mipmap/icon_error" />
+
             <TextView
                 android:id="@+id/notice_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="36sp"
-                android:paddingBottom="6dp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="36sp" />
         </LinearLayout>
 
     </com.wenh.baselibrary.widget.ShadowRelativeLayout>
