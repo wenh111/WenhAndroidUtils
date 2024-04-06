@@ -13,7 +13,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 
-public abstract class SimpleActivity <V extends ViewBinding> extends SupportActivity {
+public abstract class  SimpleActivity <V extends ViewBinding> extends SupportActivity {
 
     protected Activity mContext;
     protected V views;

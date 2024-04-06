@@ -22,7 +22,8 @@ public class TimeUtil {
      * yyyy-MM-dd 比如：  2020-05-23
      */
     public static final String YYYY_MM_DD = "yyyy-MM-dd";
-
+    public static final String YYYY_MM_DD_EE = "yyyy/MM/dd EEEE";
+    public static final String YYYY_MM_DD_HH_mm = "yy/MM/dd HH_MM";
     /**
      * yyyy-M-d 不补0 比如：  2020-5-23
      */

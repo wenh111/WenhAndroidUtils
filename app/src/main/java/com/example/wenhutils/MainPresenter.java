@@ -1,6 +1,7 @@
 package com.example.wenhutils;
 
 import android.annotation.SuppressLint;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -18,10 +19,17 @@ import com.wenh.baselibrary.network.HttpResponse;
 import com.wenh.baselibrary.util.thread.Threads;
 
 import org.apache.log4j.Logger;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.List;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -40,7 +48,7 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
         Mods.prefers().setServiceAddress("192.168.2.166");
         Mods.prefers().setHttpPort("80");
         Mods.prefers().setMqttPort("1883");
-        mView.changeFragment();
+//        mView.changeFragment();
 
         apis = Mods.apis();
         connectMqtt();
@@ -134,8 +142,40 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
     @Override
     public void onGranted(@NonNull List<String> permissions, boolean allGranted) {
         if (allGranted) {
-            deviceLogin();
+//            deviceLogin();
+            getExcelMessage();
         }
+    }
+
+    private void getExcelMessage() {
+        // 执行任务
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                File excelFile = new File("/storage/emulated/0/guofang/messagetable.xlsx");
+                try {
+                    FileInputStream fis = new FileInputStream(excelFile);
+                    XSSFWorkbook workbook = new XSSFWorkbook(fis);
+                    // 获取第一个工作表
+                    XSSFSheet sheet = workbook.getSheetAt(0);
+                    // 迭代每一行
+                    for (Row row : sheet) {
+                        // 迭代每一列
+                        StringBuilder stringBuffer = new StringBuilder();
+                        for (Cell cell : row) {
+                            // 获取单元格内容并打印
+                            stringBuffer.append(cell.toString());
+                            stringBuffer.append("     ");
+                        }
+                        Log.d("ExcelDemo", stringBuffer.toString());
+                    }
+
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     @Override
