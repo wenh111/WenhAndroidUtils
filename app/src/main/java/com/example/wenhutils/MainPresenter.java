@@ -8,17 +8,19 @@ import androidx.annotation.NonNull;
 import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
+import com.wenh.baselibrary.Base;
+import com.wenh.baselibrary.LoggerWindow.LogWindow;
+import com.wenh.baselibrary.LoggerWindow.Logger;
 import com.wenh.baselibrary.Mods;
 import com.wenh.baselibrary.NoticeUtil;
+import com.wenh.baselibrary.Viewer;
 import com.wenh.baselibrary.bean.DeviceBean;
 import com.wenh.baselibrary.callback.Callback;
-import com.wenh.baselibrary.log4j.LoggerInit;
 import com.wenh.baselibrary.mvpbase.RxPresenter;
 import com.wenh.baselibrary.network.Apis;
 import com.wenh.baselibrary.network.HttpResponse;
 import com.wenh.baselibrary.util.thread.Threads;
 
-import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -40,7 +42,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 import retrofit2.Response;
 
 public class MainPresenter extends RxPresenter<MainContract.View> implements MainContract.Presenter, Callback<Boolean>, OnPermissionCallback {
-    private Logger logger = Logger.getLogger(MainPresenter.class);
+//    private Logger logger = Logger.getLogger(MainPresenter.class);
     private Apis apis;
 
     @Override
@@ -51,9 +53,9 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
 //        mView.changeFragment();
 
         apis = Mods.apis();
-        connectMqtt();
+//        connectMqtt();
         EventBus.getDefault().register(this);
-        LoggerInit.init(mView.getActivity());
+//        LoggerInit.init(mView.getActivity());
         //PermissionUtils.permission(MANAGE_EXTERNAL_STORAGE).request();
         //获取所需要的权限
         String[] permissions = {
@@ -82,7 +84,7 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
                 Response<HttpResponse<DeviceBean>> execute = apis.longin("6c1524579851").execute();
                 if (execute != null && execute.isSuccessful()) {
                     DeviceBean data = execute.body().getData();
-                    logger.info("data.getMac():" + data.getMac());
+                    Logger.i("data.getMac():" + data.getMac());
                     return true;
                 }
                 return false;
@@ -131,20 +133,27 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(MeetingMessageArgs myEvent) {
-        logger.info("收到消息：" + myEvent.toString());
+        Logger.i("收到消息：" + myEvent.toString());
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(MeetingBean myEvent) {
-        logger.info("收到消息：" + myEvent.toString());
+        Logger.i("收到消息：" + myEvent.toString());
     }
 
     @Override
     public void onGranted(@NonNull List<String> permissions, boolean allGranted) {
         if (allGranted) {
 //            deviceLogin();
-            getExcelMessage();
+//            getExcelMessage();
+
+            deviceLogin();
         }
+    }
+
+    private void showLogWindow() {
+        Logger.w("showLogWindow");
+        LogWindow.open(Base.getContext(), 1920f / Viewer.getScreenWidth(Base.getContext()) * 1.5f);
     }
 
     private void getExcelMessage() {

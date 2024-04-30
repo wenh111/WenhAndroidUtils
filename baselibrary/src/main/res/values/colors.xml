@@ -2,4 +2,6 @@
 <resources>
     <color name="theme_notice90">#e51b376e</color>
     <color name="theme_shadow76">#C224478f</color>
+    <color name="logger_divide">#06000000</color>
+    <color name="logger_window_border">#55000000</color>
 </resources>

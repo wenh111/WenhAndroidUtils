@@ -1,7 +1,10 @@
 <resources>
     <string name="fragmentation_stack_view">Stack</string>
     <string name="fragmentation_stack_help">*: Not in backStack\n☀: Visible</string>
-    <string name="connect_error">连接错误</string>
-    <string name="tcp_connect_error">TCP连接错误</string>
-    <string name="connect_normal">连接正常</string>
+    <string name="connect_error" translatable="false">连接错误</string>
+    <string name="tcp_connect_error" translatable="false">TCP连接错误</string>
+    <string name="connect_normal" translatable="false">连接正常</string>
+
+    <string name="copied" translatable="false">已复制</string>
+    <string name="log_window" translatable="false">日志窗口</string>
 </resources>

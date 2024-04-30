@@ -1,6 +1,8 @@
 package com.example.wenhutils;
 
 import com.example.wenhutils.databinding.ActivityMainBinding;
+import com.wenh.baselibrary.LoggerWindow.LogWindow;
+import com.wenh.baselibrary.Viewer;
 import com.wenh.baselibrary.mvpbase.BaseActivity;
 
 
@@ -91,6 +93,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainPresente
 
     @Override
     protected void initial() {
+        LogWindow.open(this, 1920f / Viewer.getScreenWidth(this) * 1.5f);
         mPresenter.init();
     }
 

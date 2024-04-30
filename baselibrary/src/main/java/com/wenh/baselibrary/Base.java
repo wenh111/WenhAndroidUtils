@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.gonsin.i18n.lib.T;
 import com.gonsin.i18n.lib.config.TConfig;
+import com.wenh.baselibrary.LoggerWindow.Logger;
 
 
 public class Base {
@@ -35,6 +36,7 @@ public class Base {
      */
     public static void init(Context context) {
         Frame.init(context);
+        Logger.init(context);
         getInstance().mContext = context;
 //        getInstance().initI18nLanguage();
     }
