@@ -24,6 +24,7 @@ public final class Logger {
      */
     public static void init(Context context) {
         getInstance().mContext = context;
+        new LogUtil.Builder().setLog2FileSwitch(true);
     }
 
     public static Logger getInstance() {

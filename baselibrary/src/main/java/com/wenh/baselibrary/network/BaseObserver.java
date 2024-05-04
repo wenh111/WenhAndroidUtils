@@ -27,8 +27,8 @@ public abstract class BaseObserver<T> implements Observer<T> {
 
     /**
      * 获取数据失败
-     * @param e
-     *          the exception encountered by the Observable
+     *
+     * @param e the exception encountered by the Observable
      */
     @Override
     public void onError(Throwable e) {
@@ -37,8 +37,8 @@ public abstract class BaseObserver<T> implements Observer<T> {
 
     /**
      * 订阅
-     * @param d
-     *          the subscription object
+     *
+     * @param d the subscription object
      */
     @Override
     public void onSubscribe(Disposable d) {

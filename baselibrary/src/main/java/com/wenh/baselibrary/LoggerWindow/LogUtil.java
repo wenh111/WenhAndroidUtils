@@ -52,32 +52,32 @@ public class LogUtil {
 
     private static final int FILE = 0x10;
     private static final int JSON = 0x20;
-    private static final int XML  = 0x30;
+    private static final int XML = 0x30;
     private static ExecutorService executor;
     private static String defaultDir;// log默认存储目录
     private static String dir;       // log存储目录
 
-    private static boolean sLogSwitch         = true; // log总开关，默认开
+    private static boolean sLogSwitch = true; // log总开关，默认开
     private static boolean sLog2ConsoleSwitch = true; // logcat是否打印，默认打印
-    private static String sGlobalTag         = null; // log标签
-    private static boolean sTagIsSpace        = true; // log标签是否为空白
-    private static boolean sLogHeadSwitch     = true; // log头部开关，默认开
-    private static boolean sLog2FileSwitch    = false;// log写入文件开关，默认关
-    private static boolean sLogBorderSwitch   = true; // log边框开关，默认开
-    private static int     sConsoleFilter     = V;    // log控制台过滤器
-    private static int     sFileFilter        = V;    // log文件过滤器
+    private static String sGlobalTag = null; // log标签
+    private static boolean sTagIsSpace = true; // log标签是否为空白
+    private static boolean sLogHeadSwitch = true; // log头部开关，默认开
+    private static boolean sLog2FileSwitch = false;// log写入文件开关，默认关
+    private static boolean sLogBorderSwitch = true; // log边框开关，默认开
+    private static int sConsoleFilter = V;    // log控制台过滤器
+    private static int sFileFilter = V;    // log文件过滤器
 
-    private static final String FILE_SEP      = System.getProperty("file.separator");
-    private static final String LINE_SEP      = System.getProperty("line.separator");
-    private static final String TOP_BORDER    = "╔═══════════════════════════════════════════════════════════════════════════════════════════════════";
-    private static final String LEFT_BORDER   = "║ ";
+    private static final String FILE_SEP = System.getProperty("file.separator");
+    private static final String LINE_SEP = System.getProperty("line.separator");
+    private static final String TOP_BORDER = "╔═══════════════════════════════════════════════════════════════════════════════════════════════════";
+    private static final String LEFT_BORDER = "║ ";
     private static final String BOTTOM_BORDER = "╚═══════════════════════════════════════════════════════════════════════════════════════════════════";
-    private static final int    MAX_LEN       = 4000;
-    private static final Format FORMAT        = new SimpleDateFormat("MM-dd HH:mm:ss.SSS ", Locale.getDefault());
+    private static final int MAX_LEN = 4000;
+    private static final Format FORMAT = new SimpleDateFormat("MM-dd HH:mm:ss.SSS ", Locale.getDefault());
 
     private static final String NULL_TIPS = "Log with null object.";
-    private static final String NULL      = "null";
-    private static final String ARGS      = "args";
+    private static final String NULL = "null";
+    private static final String ARGS = "args";
 
     private LogUtil() {
         throw new UnsupportedOperationException("u can't instantiate me...");
@@ -473,6 +473,10 @@ public class LogUtil {
             }
         }
         return true;
+    }
+
+    public static String getLogPath() {
+        return defaultDir;
     }
 
     public static byte[] compress(final byte input[]) {
